@@ -1,0 +1,4 @@
+---
+
+minor_changes:
+  - redhat.satellite.host_collections - Add a role `host_collections` to manage host collections
