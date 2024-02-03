@@ -1,0 +1,12 @@
+---
+- name: 'Create Host Collections'
+  redhat.satellite.host_collection:
+    username: "{{ satellite_username | default(omit) }}"
+    password: "{{ satellite_password | default(omit) }}"
+    server_url: "{{ satellite_server_url | default(omit) }}"
+    validate_certs: "{{ satellite_validate_certs | default(omit) }}"
+    organization: "{{ satellite_organization }}"
+    name: "{{ item.name }}"    
+    description: "{{ item.description | default(omit) }}"
+    state: "{{ item.state | default(omit) }}"
+  with_items: "{{ satellite_host_collections | default([]) }}"
